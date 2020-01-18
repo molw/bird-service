@@ -14,7 +14,7 @@ public class BirdAnalysis {
 
     @Transactional
     public String getNumberOfObservations(){
-        Query query = em.createQuery("SELECT b.common_name FROM Birdobs b " );
+        Query query = em.createQuery("SELECT b.location FROM Birdobs b " );
         return query.getResultList().get(0).toString();
     }
 }

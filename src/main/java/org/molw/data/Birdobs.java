@@ -1,5 +1,8 @@
 package org.molw.data;
 
+import org.locationtech.jts.geom.Point;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -7,11 +10,19 @@ import javax.persistence.Id;
 public class Birdobs {
 
   @Id
-  private String global_Unique_Identifier;
-  private double taxonomic_order;
+  @Column(name = "global_unique_identifier")
+  private String globalUniqueIdentifier;
+
+  @Column(name = "taxonomic_order")
+  private double taxonomicOrder;
   private String category;
-  private String common_name;
+
+  @Column(name = "common_name")
+  private String commonName;
+
+  @Column(name = "scientific_name")               
   private String scientificName;
+
   private String subspeciesCommonName;
   private String subspeciesScientificName;
   private long observationCount;
@@ -29,7 +40,7 @@ public class Birdobs {
   private String locality;
   private String localityId;
   private String localityType;
-  // private long location;
+  private Point location;
   private java.sql.Timestamp observationStart;
   private String observerId;
   private String firstName;
@@ -51,20 +62,20 @@ public class Birdobs {
 
 
   public String getGlobal_Unique_Identifier() {
-    return global_Unique_Identifier;
+    return globalUniqueIdentifier;
   }
 
   public void setGlobal_Unique_Identifier(String globalUniqueIdentifier) {
-    this.global_Unique_Identifier = globalUniqueIdentifier;
+    this.globalUniqueIdentifier = globalUniqueIdentifier;
   }
 
 
   public double getTaxonomic_order() {
-    return taxonomic_order;
+    return taxonomicOrder;
   }
 
   public void setTaxonomic_order(double taxonomicOrder) {
-    this.taxonomic_order = taxonomicOrder;
+    this.taxonomicOrder = taxonomicOrder;
   }
 
 
@@ -78,11 +89,11 @@ public class Birdobs {
 
 
   public String getCommon_name() {
-    return common_name;
+    return commonName;
   }
 
   public void setCommon_name(String commonName) {
-    this.common_name = commonName;
+    this.commonName = commonName;
   }
 
 
@@ -247,18 +258,16 @@ public class Birdobs {
     this.localityType = localityType;
   }
 
-  /*
-  public long getLocation() {
+
+  public Point getLocation() {
     return location;
   }
 
-  public void setLocation(long location) {
+  public void setLocation(Point location) {
     this.location = location;
   }
   
-   */
-
-
+   
   public java.sql.Timestamp getObservationStart() {
     return observationStart;
   }
